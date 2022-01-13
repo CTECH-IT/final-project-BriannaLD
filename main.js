@@ -1,8 +1,10 @@
 let inputXPos = 500;
 let inputYPos = 30;
+let fr = 6;
 
 function setup() {
     createCanvas(1536, 713);
+    frameRate(fr);
 
     input = createInput();
     input.position(inputXPos, inputYPos);
