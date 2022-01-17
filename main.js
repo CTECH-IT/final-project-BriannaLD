@@ -20,9 +20,13 @@ function setup() {
 
   //New instance of this constructor doesn't work in the for loop. Why?
     function AngrySquare() {
-      let angryColorArray = ["255,0,0", "220,20,60", "255, 36, 0"];
-      randomColorNumber = Math.random() * (2 - 0) + 0;
-      this.color = angryColorArray[randomColorNumber];
+      let angryColorArray = ["#EE4B2B", "#770737", "#FF3131"];
+      randomColorNumber = (Math.random() * angryColorArray.length);
+      //this.color is listed as undefined. Do I need to do something similar to the last project's shopping list?
+      this.color = str(angryColorArray[int(randomColorNumber)]);
+      //Only gives first part of the color code
+      console.log(this.color);
+      console.log(randomColorNumber);
   
       this.squareX = Math.random() * (1536 - 0) + 0;
       this.squareY = Math.random() * (1536 - 0) + 0;
@@ -32,10 +36,81 @@ function setup() {
       this.squareHeight = this.squareWidth;
   
       //How to use the randomized color codes. Maybe use different format that doesn't have commas?
-      fill(255,0,0);
+      noStroke();
+      fill(this.color);
   
       rect(this.squareX, this.squareY, this.squareWidth, this.squareHeight);
     };
+
+    function SadCircle() {
+      let sadColorArray = ["#6F8FAF", "#0F52BA", "#0818A8"];
+      randomColorNumber = (Math.random() * sadColorArray.length);
+      //this.color is listed as undefined. Do I need to do something similar to the last project's shopping list?
+      this.color = str(sadColorArray[int(randomColorNumber)]);
+      //Only gives first part of the color code
+      console.log(this.color);
+      console.log(randomColorNumber);
+  
+      this.circleX = Math.random() * (1536 - 0) + 0;
+      this.circleY = Math.random() * (1536 - 0) + 0;
+  
+      randomSquareWidthNumber = Math.random() * (80 - 30) + 30;
+      this.circleDiameter = randomSquareWidthNumber;
+      this.squareHeight = this.squareWidth;
+  
+      //How to use the randomized color codes. Maybe use different format that doesn't have commas?
+      noStroke();
+      fill(this.color);
+  
+      circle(this.circleX, this.circleY, this.circleDiameter);
+    };
+
+    function HappyCircle() {
+      let happyColorArray = ["#FFFF8F", "#FFFF00", "#F4C430"];
+      randomColorNumber = (Math.random() * happyColorArray.length);
+      //this.color is listed as undefined. Do I need to do something similar to the last project's shopping list?
+      this.color = str(happyColorArray[int(randomColorNumber)]);
+      //Only gives first part of the color code
+      console.log(this.color);
+      console.log(randomColorNumber);
+  
+      this.circleX = Math.random() * (1536 - 0) + 0;
+      this.circleY = Math.random() * (1536 - 0) + 0;
+  
+      randomSquareWidthNumber = Math.random() * (80 - 30) + 30;
+      this.circleDiameter = randomSquareWidthNumber;
+      this.squareHeight = this.squareWidth;
+  
+      //How to use the randomized color codes. Maybe use different format that doesn't have commas?
+      noStroke();
+      fill(this.color);
+  
+      circle(this.circleX, this.circleY, this.circleDiameter);
+    };
+
+    //Extra work here. Have to find random numbers for each point.
+    //Find first point then add certain amount to find other points?
+    function ScaredTriangle() {
+      let scaredColorArray = ["#CF9FFF", "#BF40BF", "#BDB5D5"];
+      randomColorNumber = (Math.random() * scaredColorArray.length);
+      //this.color is listed as undefined. Do I need to do something similar to the last project's shopping list?
+      this.color = str(scaredColorArray[int(randomColorNumber)]);
+      //Only gives first part of the color code
+      console.log(this.color);
+      console.log(randomColorNumber);
+  
+      this.triangle1X = Math.random() * (1536 - 0) + 0;
+      this.triangle1Y = Math.random() * (1536 - 0) + 0;
+  
+      randomTriangleNumber = Math.random() * (80 - 30) + 30;
+  
+      //How to use the randomized color codes. Maybe use different format that doesn't have commas?
+      noStroke();
+      fill(this.color);
+  
+      triangle(this.triangle1X, this.triangle1Y, (this.triangle1X + randomTriangleNumber), this.triangle1Y, (this.triangle1X + (randomTriangleNumber/2)), (this.triangle1Y - randomTriangleNumber));
+    };
+    
   
   
   
@@ -92,13 +167,15 @@ function setup() {
       || splitWordsArray[indexCounter] == "miserable" || splitWordsArray[indexCounter] == "pitiful" || splitWordsArray[indexCounter] == "depressing"
       || splitWordsArray[indexCounter] == "distressing" || splitWordsArray[indexCounter] == "shameful" || splitWordsArray[indexCounter] == "regrettable"
       || splitWordsArray[indexCounter] == "pathetic") {
-        fill(0,0,255);
 
-        //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
-        //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
-        let madShapeX = Math.random() * (1536 - 0) + 0;
-        let madShapeY = Math.random() * (1536 - 0) + 0;
-        rect(madShapeX, madShapeY, 50, 50);
+        let newCircle = new SadCircle();
+        // fill(0,0,255);
+
+        // //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
+        // //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
+        // let madShapeX = Math.random() * (1536 - 0) + 0;
+        // let madShapeY = Math.random() * (1536 - 0) + 0;
+        // rect(madShapeX, madShapeY, 50, 50);
       }
 
       //"Happy" synonyms
@@ -115,13 +192,15 @@ function setup() {
       || splitWordsArray[indexCounter] == "elated" || splitWordsArray[indexCounter] == "exhilarated" || splitWordsArray[indexCounter] == "ecstatic"
       || splitWordsArray[indexCounter] == "blissful" || splitWordsArray[indexCounter] == "euphoric" || splitWordsArray[indexCounter] == "overjoyed"
       || splitWordsArray[indexCounter] == "chipper" || splitWordsArray[indexCounter] == "chuffed") {
-        fill(255,255,0);
+        
+        let newCircle = new HappyCircle();
+        // fill(255,255,0);
 
-        //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
-        //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
-        let madShapeX = Math.random() * (1536 - 0) + 0;
-        let madShapeY = Math.random() * (1536 - 0) + 0;
-        rect(madShapeX, madShapeY, 50, 50);
+        // //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
+        // //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
+        // let madShapeX = Math.random() * (1536 - 0) + 0;
+        // let madShapeY = Math.random() * (1536 - 0) + 0;
+        // rect(madShapeX, madShapeY, 50, 50);
       }
 
       //"Scared" synonyms
@@ -134,13 +213,16 @@ function setup() {
       || splitWordsArray[indexCounter] == "spooked" || splitWordsArray[indexCounter] == "spooky" || splitWordsArray[indexCounter] == "anxious"
       || splitWordsArray[indexCounter] == "startled" || splitWordsArray[indexCounter] == "shocked" || splitWordsArray[indexCounter] == "unnerved"
       || splitWordsArray[indexCounter] == "petrified") {
-        fill(148,0,211);
+        
+        let newTriangle  = new ScaredTriangle();
+        
+        // fill(148,0,211);
 
-        //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
-        //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
-        let madShapeX = Math.random() * (1536 - 0) + 0;
-        let madShapeY = Math.random() * (1536 - 0) + 0;
-        rect(madShapeX, madShapeY, 50, 50);
+        // //Alright, issue with this is that it keeps updating and will give you a literal seizure. 
+        // //Might be funny though. You get a moving piece filled with all of your mixed emotions. I'm going to leave it for now.
+        // let madShapeX = Math.random() * (1536 - 0) + 0;
+        // let madShapeY = Math.random() * (1536 - 0) + 0;
+        // rect(madShapeX, madShapeY, 50, 50);
       }
 
     };
